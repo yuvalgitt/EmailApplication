@@ -1,0 +1,56 @@
+.bars:hover {
+  background-color: rgb(37, 37, 37);
+  cursor: pointer;
+}
+
+
+.content-header-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: rgb(229 231 235);
+  fill : none;
+  stroke: currentColor;
+}
+
+.label-svg {
+  color: rgb(107 114 128);
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: 0.75rem;
+  stroke: currentColor;
+  fill: none;
+}
+
+.label {
+  /* bars flex text-gray-100 p-1 rounded-r-3xl mr-2 */
+  display: flex;
+  padding: 0.25rem;
+  border-radius: 1.5rem;
+  margin-right: 2rem;
+  color: rgb(243 244 246);
+}
+
+.label:hover {
+  background-color: rgb(37, 37, 37);
+  cursor: pointer;
+}
+
+.search-bar:focus {
+  outline: none;
+}
+
+.adjust:hover {
+  background-color: rgb(87, 87, 87);
+}
+
+.academy-cap {
+  background: linear-gradient(to right, rgb(255, 64, 105), rgb(158, 36, 119));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 2rem; /* Adjust font size as needed */
+  font-weight: bold; /* Make the text bold if desired */
+}
+
+.compose:hover {
+  cursor: pointer;
+}
