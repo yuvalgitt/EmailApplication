@@ -1,15 +1,30 @@
+.content-item:hover {
+  box-shadow: 0px 3px 4px 1px white , 0px -1px 4px 1px white;
+}
+
+/* Optional: Style scrollbar for non-WebKit browsers */
+.scrollbar-custom {
+  scrollbar-width: auto; /* Makes the scrollbar thinner */
+  scrollbar-color: #2c2c2c #1a1a1a; /* Thumb color and track color */
+}
+
 .bars:hover {
   background-color: rgb(37, 37, 37);
   cursor: pointer;
 }
 
-
 .content-header-svg {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
   color: rgb(229 231 235);
-  fill : none;
+  fill: none;
   stroke: currentColor;
+  cursor: pointer;
+}
+
+.content-header-svg:hover {
+  fill : rgb(255, 255, 255)
+
 }
 
 .label-svg {
@@ -19,14 +34,17 @@
   margin-left: 0.75rem;
   stroke: currentColor;
   fill: none;
+  position: absolute;
+  z-index: 1;
 }
 
 .label {
   /* bars flex text-gray-100 p-1 rounded-r-3xl mr-2 */
   display: flex;
   padding: 0.25rem;
-  border-radius: 1.5rem;
-  margin-right: 2rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  margin-right: 0.5rem;
   color: rgb(243 244 246);
 }
 

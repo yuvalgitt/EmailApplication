@@ -8,46 +8,106 @@ import {
   PencilIcon,
   StarIcon,
 } from "@heroicons/react/16/solid";
-import React from "react";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
-const SideHeader = () => {
+interface Props {
+  hamburgerToggle: boolean;
+}
+const SideHeader = ({ hamburgerToggle }: Props) => {
+  const navigate: NavigateFunction = useNavigate();
+
   return (
-    <div className=" text-gray-600  w-2/12 h-full">
-      <div className="h-16 w-36 compose flex bg-white rounded-2xl ml-2 m-3 mr-28 items-center">
-        <PencilIcon className="h-7 w-7 label-svg "></PencilIcon>
-        <span className="ml-2 mr-5">Compose</span>
+    <div
+      className={`flex flex-col duration-300 ease-out text-gray-600  ${
+        hamburgerToggle ? "w-2/12" : "w-16"
+      } max-h-full overflow-hidden`}
+    >
+      <div
+        className={`h-16  ${
+          hamburgerToggle ? "w-48" : " w-12"
+        } flex bg-white rounded-2xl m-1 duration-300 items-center
+        `}
+      >
+        <PencilIcon className="h-7 w-7 label-svg ml-1.5"></PencilIcon>
+        <span
+          style={{ opacity: hamburgerToggle ? 1 : 0 }}
+          className="ml-10 mr-5"
+        >
+          Compose
+        </span>
       </div>
-      <div className="label">
+      {/* INBOX  ↓	*/}
+      <div onClick={() => navigate("feed")} className="label">
         <InboxArrowDownIcon className="label-svg"></InboxArrowDownIcon>
-        <span className="ml-4">Inbox</span>
+        <span
+          style={{ opacity: hamburgerToggle ? 1 : 0 }}
+          className="duration-300 ml-10"
+        >
+          Inbox
+        </span>
       </div>
       <div className="label">
         <StarIcon className="label-svg"></StarIcon>
-        <span className="ml-4">Starred</span>
+        <span
+          style={{ opacity: hamburgerToggle ? 1 : 0 }}
+          className="duration-300 ml-10"
+        >
+          Starred
+        </span>
       </div>
       <div className="label">
         <ClockIcon className="label-svg"></ClockIcon>
-        <span className="ml-4">Snoozed</span>
+        <span
+          style={{ opacity: hamburgerToggle ? 1 : 0 }}
+          className="duration-300 ml-10"
+        >
+          Snoozed
+        </span>
       </div>
       <div className="label">
         <PaperAirplaneIcon className="label-svg"></PaperAirplaneIcon>
-        <span className="ml-4">Important</span>
+        <span
+          style={{ opacity: hamburgerToggle ? 1 : 0 }}
+          className="duration-300 ml-10"
+        >
+          Important
+        </span>
       </div>
       <div className="label">
         <ChevronDoubleRightIcon className="label-svg"></ChevronDoubleRightIcon>
-        <span className="ml-4">Sent</span>
+        <span
+          style={{ opacity: hamburgerToggle ? 1 : 0 }}
+          className="duration-300 ml-10"
+        >
+          Sent
+        </span>
       </div>
       <div className="label">
         <ClockIcon className="label-svg"></ClockIcon>
-        <span className="ml-4">Snoozed</span>
+        <span
+          style={{ opacity: hamburgerToggle ? 1 : 0 }}
+          className="duration-300 ml-10"
+        >
+          Snoozed
+        </span>
       </div>
       <div className="label">
         <DocumentIcon className="label-svg"></DocumentIcon>
-        <span className="ml-4">Drafts</span>
+        <span
+          style={{ opacity: hamburgerToggle ? 1 : 0 }}
+          className="duration-300 ml-10"
+        >
+          Drafts
+        </span>
       </div>
-      <div className="label">
+      <div className="label ">
         <ExclamationCircleIcon className="label-svg"></ExclamationCircleIcon>
-        <span className="ml-4">Spam</span>
+        <span
+          style={{ opacity: hamburgerToggle ? 1 : 0 }}
+          className="duration-300 ml-10"
+        >
+          Spam
+        </span>
       </div>
     </div>
   );
