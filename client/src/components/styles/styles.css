@@ -13,6 +13,16 @@
   cursor: pointer;
 }
 
+.sign {
+  transition: 0.2s;
+}
+
+.sign:hover {
+  transition: 0.3s;
+  color: rgb(153 214 255);
+  background-color: rgb(0 77 128);
+}
+
 .content-header-svg {
   width: 1.25rem;
   height: 1.25rem;

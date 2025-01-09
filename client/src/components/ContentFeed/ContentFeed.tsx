@@ -1,7 +1,7 @@
 import React from "react";
-import ContentHeader from "./ContentFeed/ContentHeader";
-import ContentItem from "./ContentFeed/ContentItem";
-import ContentBottomHeader from "./ContentFeed/ContentBottomHeader";
+import ContentHeader from "./ContentHeader";
+import ContentItem from "./ContentItem";
+import ContentBottomHeader from "./ContentBottomHeader";
 
 const ContentFeed = () => {
   return (

@@ -7,7 +7,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/16/solid";
 import React, { useEffect, useState } from "react";
-import "./styles.css";
+import "../styles/styles.css";
 
 interface Props {
   setHamburgerToggle : React.Dispatch<React.SetStateAction<boolean>>,

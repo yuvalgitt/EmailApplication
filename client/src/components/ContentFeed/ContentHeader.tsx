@@ -1,6 +1,6 @@
 import {  ArrowPathIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, EllipsisVerticalIcon, StopIcon } from '@heroicons/react/16/solid'
 import React from 'react'
-import '../styles.css'
+import "../styles/styles.css";
 
 const ContentHeader = () => {
   return (

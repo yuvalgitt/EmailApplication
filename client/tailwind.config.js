@@ -7,7 +7,9 @@ export default {
         "gmail-black": "#111111",
         "gmail-grey": "#474747",
         "gmail-darkgrey" : "#2c2c2c",
-        "gmail-lightgrey" : "#858585"
+        "gmail-lightgrey" : "#858585",
+        "gmail-blue" :"#004d80",
+        "gmail-lightblue" : "#99d6ff"
       },
       backgroundClip: {
         text: "text", // Adds support for text background-clip (non-prefixed)
