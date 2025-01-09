@@ -40,7 +40,7 @@ const Topheader = ({hamburgerToggle,setHamburgerToggle}:Props) => {
         id="search-bar"
         className="bg-gmail-grey ml-10 h-5/6 w-4/12 m-2 rounded-3xl flex items-center"
       >
-        <MagnifyingGlassCircleIcon className=" w-8 h-8 z-10 text-gray-200 m-1"></MagnifyingGlassCircleIcon>
+        <MagnifyingGlassCircleIcon className="fill-none stroke-current w-10 h-10 z-10 text-white m-1"></MagnifyingGlassCircleIcon>
         <input
           className="search-bar  bg-gmail-grey  h-5 w-full p-5 rounded-3xl"
           type="text"
@@ -58,7 +58,7 @@ const Topheader = ({hamburgerToggle,setHamburgerToggle}:Props) => {
         >
           Y
         </div>
-        <Cog6ToothIcon className="bars rounded-full p-1.5 w-10 h-10 text-gray-300 m-1"></Cog6ToothIcon>
+        <Cog6ToothIcon className="bars fill-none stroke-current rounded-full p-1.5 w-10 h-10 text-gray-300 m-1"></Cog6ToothIcon>
       </div>
     </div>
   );
