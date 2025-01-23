@@ -20,7 +20,8 @@ const LogInComp = () => {
   const handleLogin = async () => {
     if (userObj && userObj.password && userObj.email) {
       try {
-        const response = await axios.post(`${serverUrl}/user/login`, userObj);
+        const response = await axios.post(`${serverUrl}/users/login`, userObj);
+        alert(response.data)
       } catch (error: any) {
         console.log(error.message);
       }
