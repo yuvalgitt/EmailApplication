@@ -47,6 +47,8 @@ export class UserService {
       console.log('no user found with matching email');
 
     } catch (error) {
+      console.log(error);
+      
       return error
     }
   }

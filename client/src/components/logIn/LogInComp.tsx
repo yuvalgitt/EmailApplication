@@ -4,8 +4,10 @@ import "../styles/styles.css";
 import { User } from "../../types/types";
 import axios from "axios";
 import serverUrl from "../../config/config";
+import { useNavigate } from "react-router-dom";
 
 const LogInComp = () => {
+  const navigate = useNavigate()
   const [userObj, setUserObj] = useState<User>({
     email: "",
     password: "",
@@ -20,8 +22,10 @@ const LogInComp = () => {
   const handleLogin = async () => {
     if (userObj && userObj.password && userObj.email) {
       try {
-        const response = await axios.post(`${serverUrl}/users/login`, userObj);
-        alert(response.data)
+        await axios.post(`${serverUrl}/users/login`, userObj , {
+          withCredentials: true
+        });
+        navigate('/')
       } catch (error: any) {
         console.log(error.message);
       }
@@ -29,7 +33,7 @@ const LogInComp = () => {
   };
 
   return (
-    <div className="bg-opacity-70 absolute w-screen h-screen z-20 bg-gmail-black backdrop-blur-lg flex items-center justify-center text-white">
+    <div className="bg-opacity-70 absolute w-screen h-screen z-50 bg-gmail-black backdrop-blur-lg flex items-center justify-center text-white">
       <div className="bg-gmail-black w-6/12 h-3/6 flex p-5 border-2 rounded-3xl">
         <div className="overflow-hidden w-6/12 h-full p-5">
           <div className=" bg-gradient-to-r from-red-500 to-violet-500 w-16 h-16  m-2 flex items-center justify-center rounded-full">
@@ -51,6 +55,7 @@ const LogInComp = () => {
                 className="bg-gmail-black border-2 border-gmail-lightgrey rounded-lg p-2 w-full"
                 placeholder="email"
                 name="email"
+                autoComplete="email"
               />
               <span className="mt-5">Password</span>
               <input

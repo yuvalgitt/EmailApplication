@@ -27,6 +27,7 @@ export class TokenService {
             select refreshtoken from refreshtokens
         `;
     const token = refreshTokenDto.token;
+    
 
     try {
       const response = await pgClient.query(queryText);
