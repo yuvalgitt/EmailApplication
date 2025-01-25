@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/16/solid";
 import React, { useEffect, useState } from "react";
 import "../styles/styles.css";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   setHamburgerToggle : React.Dispatch<React.SetStateAction<boolean>>,
@@ -15,6 +16,7 @@ interface Props {
 }
 
 const Topheader = ({hamburgerToggle,setHamburgerToggle}:Props) => {
+  const navigate = useNavigate()
   const [inputFocus, setInputFocus] = useState<boolean>(false);
 
 
@@ -24,6 +26,10 @@ const Topheader = ({hamburgerToggle,setHamburgerToggle}:Props) => {
 
   const handleHamburger = ()=>{
     setHamburgerToggle(!hamburgerToggle)
+  }
+
+  const handleProfile = () => {
+      
   }
 
   return (
@@ -51,10 +57,11 @@ const Topheader = ({hamburgerToggle,setHamburgerToggle}:Props) => {
         <AdjustmentsHorizontalIcon className="rounded-full adjust w-11 h-9 z-10 p-1  mr-3"></AdjustmentsHorizontalIcon>
       </div>
       {/* settings side on the right side*/}
-      <div className="flex flex-row-reverse items-center ml-auto w-4/12 h-full">
+      <div className="flex flex-row-reverse items-center ml-auto w-4/12 h-full p-4">
         <div
           style={{ paddingLeft: "0.7rem" }}
           className="bg-orange-400 rounded-full w-8 h-8 m-2 text-white pt-0.5 text-lg"
+          onClick={handleProfile}
         >
           Y
         </div>

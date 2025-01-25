@@ -1,5 +1,10 @@
 .content-item:hover {
   box-shadow: 0px 3px 4px 1px white , 0px -1px 4px 1px white;
+  transition: 0.2s;
+
+}
+.content-item {
+  transition: 0.2s;
 }
 
 /* Optional: Style scrollbar for non-WebKit browsers */
@@ -11,6 +16,12 @@
 .bars:hover {
   background-color: rgb(37, 37, 37);
   cursor: pointer;
+  transition: 0.2s;
+
+}
+
+.bars {
+  transition: 0.2s;
 }
 
 .sign {
@@ -34,19 +45,58 @@
 
 .content-header-svg:hover {
   fill : rgb(255, 255, 255)
-
+  
 }
 
-.label-svg {
-  color: rgb(107 114 128);
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-left: 0.75rem;
-  stroke: currentColor;
-  fill: none;
-  position: absolute;
-  z-index: 1;
+
+@media (min-width : 640px) {
+  .label-svg {
+    color: rgb(107 114 128);
+    width: 1.25rem;
+    height: 1rem;
+    font-size: 1px;
+    margin-left: 0.75rem;
+    stroke: currentColor;
+    fill: none;
+    position: absolute;
+    z-index: 1;
+  
+    
+    }
+
+    
+    .label-text{
+      margin-left : 2.5rem;
+      margin-right : 1.25rem;
+      font-size: 0.75rem;
+    }
 }
+@media (min-width : 1080px) {
+
+      
+  .label-text{
+    margin-left : 2.5rem;
+    margin-right : 1.25rem;
+    font-size: 1.25rem;
+  }
+
+  .label-svg {
+    color: rgb(107 114 128);
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: 0.75rem;
+    stroke: currentColor;
+    fill: none;
+    position: absolute;
+    z-index: 1;
+  
+      
+    }
+}
+
+
+
+
 
 .label {
   /* bars flex text-gray-100 p-1 rounded-r-3xl mr-2 */
@@ -56,6 +106,8 @@
   border-bottom-right-radius: 1.5rem;
   margin-right: 0.5rem;
   color: rgb(243 244 246);
+  transition: 0.2s;
+
 }
 
 .label:hover {
@@ -69,6 +121,11 @@
 
 .adjust:hover {
   background-color: rgb(87, 87, 87);
+  transition: 0.2s;
+}
+
+.adjust {
+  transition: 0.2s;
 }
 
 .academy-cap {

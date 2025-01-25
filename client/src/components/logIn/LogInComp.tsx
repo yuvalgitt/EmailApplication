@@ -7,11 +7,30 @@ import serverUrl from "../../config/config";
 import { useNavigate } from "react-router-dom";
 
 const LogInComp = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [userObj, setUserObj] = useState<User>({
     email: "",
     password: "",
   });
+
+  const handleLoginGuest = async() => {
+    const guest = {
+      email: "john@gmail.com",
+      password: "1234",
+    };
+    try {
+      const response = await axios.post(`${serverUrl}/users/login`, guest, {
+        withCredentials: true,
+      });
+
+      if (response.status === 200) navigate("/feed");
+      localStorage.setItem("email",guest.email)
+
+    } catch (error: any) {
+      alert("invalid");
+      console.log(error.message);
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const type = e.target.name;
@@ -20,13 +39,19 @@ const LogInComp = () => {
   };
 
   const handleLogin = async () => {
+    console.log(userObj);
+
     if (userObj && userObj.password && userObj.email) {
       try {
-        await axios.post(`${serverUrl}/users/login`, userObj , {
-          withCredentials: true
+        const response = await axios.post(`${serverUrl}/users/login`, userObj, {
+          withCredentials: true,
         });
-        navigate('/')
+
+        localStorage.setItem("email",userObj.email)
+
+        if (response.status === 200) navigate("/feed");
       } catch (error: any) {
+        alert("invalid");
         console.log(error.message);
       }
     }
@@ -34,7 +59,7 @@ const LogInComp = () => {
 
   return (
     <div className="bg-opacity-70 absolute w-screen h-screen z-50 bg-gmail-black backdrop-blur-lg flex items-center justify-center text-white">
-      <div className="bg-gmail-black w-6/12 h-3/6 flex p-5 border-2 rounded-3xl">
+      <div className="bg-gmail-black w-6/12 h-3/6 flex p-5 border-2 rounded-3xl shadow-slate-700 shadow-2xl">
         <div className="overflow-hidden w-6/12 h-full p-5">
           <div className=" bg-gradient-to-r from-red-500 to-violet-500 w-16 h-16  m-2 flex items-center justify-center rounded-full">
             <AcademicCapIcon className="stroke-current fill-none w-16 h-16  text-white" />
@@ -68,7 +93,7 @@ const LogInComp = () => {
             </div>
           </div>
           <div className=" flex-grow w-full flex items-end justify-end">
-            <button className="bars rounded-3xl flex-grow h-10 mr-5 text-gmail-lightblue">
+            <button onClick={handleLoginGuest} className="bars rounded-3xl flex-grow h-10 mr-5 text-gmail-lightblue">
               sign in as guest{" "}
               <span className="text-red-600">
                 *only for viewing application

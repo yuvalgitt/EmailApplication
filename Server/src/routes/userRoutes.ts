@@ -8,6 +8,8 @@ const userController = new UserController()
 
 
 router.get("/hi/:name" , extractCookiesAndInsertIntoHeader ,authenticateTokenFromHeader ,userController.getHellowWorld)
+
+//  ONLY TOKEN RELATED ROUTES   ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 router.post("/register" ,validateDtoUser ,userController.createUser)
 router.post('/login' , validateDtoUser , userController.logInUser )
 router.post('/token', validateDtoToken, genNewToken)

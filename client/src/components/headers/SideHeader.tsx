@@ -19,19 +19,19 @@ const SideHeader = ({ hamburgerToggle }: Props) => {
   return (
     <div
       className={`flex flex-col duration-300 ease-out text-gray-600  ${
-        hamburgerToggle ? "w-2/12" : "w-16"
+        hamburgerToggle ? "sm:w-32 lg:w-80" : "lg:w-16 sm:w-14"
       } max-h-full overflow-hidden`}
     >
       <div
-        className={`h-16  ${
-          hamburgerToggle ? "w-48" : " w-12"
+        className={`lg:h-16 sm:h-8  ${
+          hamburgerToggle ? "lg:w-48 sm:w-30" : " w-12"
         } flex bg-white rounded-2xl m-1 duration-300 items-center
         `}
       >
         <PencilIcon className="h-7 w-7 label-svg ml-1.5"></PencilIcon>
         <span
           style={{ opacity: hamburgerToggle ? 1 : 0 }}
-          className="ml-10 mr-5"
+          className="label-text"
         >
           Compose
         </span>
@@ -41,7 +41,7 @@ const SideHeader = ({ hamburgerToggle }: Props) => {
         <InboxArrowDownIcon className="label-svg"></InboxArrowDownIcon>
         <span
           style={{ opacity: hamburgerToggle ? 1 : 0 }}
-          className="duration-300 ml-10"
+          className="duration-300 ml-10  lg:text-lg sm:text-xs"
         >
           Inbox
         </span>
@@ -50,7 +50,7 @@ const SideHeader = ({ hamburgerToggle }: Props) => {
         <StarIcon className="label-svg"></StarIcon>
         <span
           style={{ opacity: hamburgerToggle ? 1 : 0 }}
-          className="duration-300 ml-10"
+          className="duration-300 ml-10 lg:text-lg sm:text-xs "
         >
           Starred
         </span>
@@ -59,7 +59,7 @@ const SideHeader = ({ hamburgerToggle }: Props) => {
         <ClockIcon className="label-svg"></ClockIcon>
         <span
           style={{ opacity: hamburgerToggle ? 1 : 0 }}
-          className="duration-300 ml-10"
+          className="duration-300 ml-10 lg:text-lg sm:text-xs "
         >
           Snoozed
         </span>
@@ -68,7 +68,7 @@ const SideHeader = ({ hamburgerToggle }: Props) => {
         <PaperAirplaneIcon className="label-svg"></PaperAirplaneIcon>
         <span
           style={{ opacity: hamburgerToggle ? 1 : 0 }}
-          className="duration-300 ml-10"
+          className="duration-300 ml-10 lg:text-lg sm:text-xs "
         >
           Important
         </span>
@@ -77,7 +77,7 @@ const SideHeader = ({ hamburgerToggle }: Props) => {
         <ChevronDoubleRightIcon className="label-svg"></ChevronDoubleRightIcon>
         <span
           style={{ opacity: hamburgerToggle ? 1 : 0 }}
-          className="duration-300 ml-10"
+          className="duration-300 ml-10 lg:text-lg sm:text-xs "
         >
           Sent
         </span>
@@ -86,7 +86,7 @@ const SideHeader = ({ hamburgerToggle }: Props) => {
         <ClockIcon className="label-svg"></ClockIcon>
         <span
           style={{ opacity: hamburgerToggle ? 1 : 0 }}
-          className="duration-300 ml-10"
+          className="duration-300 ml-10 lg:text-lg sm:text-xs "
         >
           Snoozed
         </span>
@@ -95,7 +95,7 @@ const SideHeader = ({ hamburgerToggle }: Props) => {
         <DocumentIcon className="label-svg"></DocumentIcon>
         <span
           style={{ opacity: hamburgerToggle ? 1 : 0 }}
-          className="duration-300 ml-10"
+          className="duration-300 ml-10 lg:text-lg sm:text-xs "
         >
           Drafts
         </span>
@@ -104,7 +104,7 @@ const SideHeader = ({ hamburgerToggle }: Props) => {
         <ExclamationCircleIcon className="label-svg"></ExclamationCircleIcon>
         <span
           style={{ opacity: hamburgerToggle ? 1 : 0 }}
-          className="duration-300 ml-10"
+          className="duration-300 ml-10 lg:text-lg sm:text-xs "
         >
           Spam
         </span>
