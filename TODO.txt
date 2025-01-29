@@ -1,0 +1,2 @@
+1. Learn 0Auth2
+2. Implement log in as guest which uses the yuvalProjects email or log in using a google account.

@@ -5,6 +5,7 @@ import { User } from "../../types/types";
 import axios from "axios";
 import serverUrl from "../../config/config";
 import { useNavigate } from "react-router-dom";
+import { getGoogleAuthUrl } from "../../utils/getGoogleUrl";
 
 const LogInComp = () => {
   const navigate = useNavigate();
@@ -72,7 +73,10 @@ const LogInComp = () => {
         </div>
         <div className="flex flex-col w-full items-start overflow-hidden">
           <div className="flex flex-row-reverse justify-center w-full  h-3/6  ">
-            <div className=" flex flex-col justify-center flex-gorw w-3/6">
+          <a href={getGoogleAuthUrl()}>
+              log in with google
+          </a>
+            {/* <div className=" flex flex-col justify-center flex-gorw w-3/6">
               <span className="">Email</span>
               <input
                 onChange={handleChange}
@@ -90,7 +94,7 @@ const LogInComp = () => {
                 placeholder="password"
                 name="password"
               />
-            </div>
+            </div> */}
           </div>
           <div className=" flex-grow w-full flex items-end justify-end">
             <button onClick={handleLoginGuest} className="bars rounded-3xl flex-grow h-10 mr-5 text-gmail-lightblue">
@@ -116,3 +120,4 @@ const LogInComp = () => {
 };
 
 export default LogInComp;
+

@@ -9,22 +9,24 @@ import ProfileMenu from "./components/logIn/ProfileMenu";
 
 const App = () => {
   const [hamburgerToggle, setHamburgerToggle] = useState<boolean>(true);
+  const [profileMenuToggle, setProfileMenuToggle] = useState<boolean>(false)
 
   return (
     <div className=" bg-gmail-black w-screen h-screen flex flex-col overflow-hidden">
       <>
         <Topheader
+          setProfileMenuToggle={setProfileMenuToggle}
+          profileMenuToggle={profileMenuToggle}
           hamburgerToggle={hamburgerToggle}
           setHamburgerToggle={setHamburgerToggle}
         ></Topheader>
         <Routes>
-          <Route path="/login" element={<LogInComp />}></Route>
-          <Route path="/profile" element={<ProfileMenu></ProfileMenu>} ></Route>
+          <Route path="/" element={<LogInComp />}></Route>
         </Routes>
       </>
       <div className="flex flex-grow  overflow-hidden">
         <SideHeader hamburgerToggle={hamburgerToggle}></SideHeader>
-          <ProfileMenu></ProfileMenu>
+        {profileMenuToggle &&  <ProfileMenu setProfileMenuToggle={setProfileMenuToggle}></ProfileMenu>}
         <Routes>
           <Route path="/feed" element={<ContentFeed />}></Route>
           <Route path="/mail" element={<MailContent />}></Route>

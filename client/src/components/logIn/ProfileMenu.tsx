@@ -1,11 +1,15 @@
 import { ArrowRightStartOnRectangleIcon } from "@heroicons/react/16/solid";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+interface Props {
+  setProfileMenuToggle : React.Dispatch<React.SetStateAction<boolean>>
 
-const ProfileMenu = () => {
+}
+const ProfileMenu = ({setProfileMenuToggle}:Props) => {
   const navigate = useNavigate();
   const handleLogOut = () => {
-    navigate("/login");
+    setProfileMenuToggle(false)
+    navigate("/");
   };
 
   return (

@@ -7,15 +7,16 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const ContentItem = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleSelectMail = () => {
-    navigate("/mail")
-  }
-
+    navigate("/mail");
+  };
 
   return (
-    <div onClick={handleSelectMail} className="content-item border-t-2 p-3 h-10  cursor-pointer border-gmail-grey flex items-center ">
+    <div
+      onClick={handleSelectMail}
+      className="content-item border-t-2 p-3 h-10  cursor-pointer border-gmail-grey flex items-center "
+    >
       {/* mail classification options */}
       <StopIcon className="content-header-svg"></StopIcon>
       <StarIcon className="content-header-svg ml-5"></StarIcon>

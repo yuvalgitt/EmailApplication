@@ -25,7 +25,7 @@ const SideHeader = ({ hamburgerToggle }: Props) => {
       <div
         className={`lg:h-16 sm:h-8  ${
           hamburgerToggle ? "lg:w-48 sm:w-30" : " w-12"
-        } flex bg-white rounded-2xl m-1 duration-300 items-center
+        } flex bg-white rounded-2xl m-1 duration-300 items-center cursor-pointer
         `}
       >
         <PencilIcon className="h-7 w-7 label-svg ml-1.5"></PencilIcon>

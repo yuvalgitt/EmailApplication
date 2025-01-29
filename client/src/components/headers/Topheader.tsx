@@ -12,10 +12,12 @@ import { useNavigate } from "react-router-dom";
 
 interface Props {
   setHamburgerToggle : React.Dispatch<React.SetStateAction<boolean>>,
+  setProfileMenuToggle :React.Dispatch<React.SetStateAction<boolean>> ,
+  profileMenuToggle : boolean ,
   hamburgerToggle : boolean
 }
 
-const Topheader = ({hamburgerToggle,setHamburgerToggle}:Props) => {
+const Topheader = ({hamburgerToggle,setHamburgerToggle , setProfileMenuToggle,profileMenuToggle}:Props) => {
   const navigate = useNavigate()
   const [inputFocus, setInputFocus] = useState<boolean>(false);
 
@@ -29,7 +31,7 @@ const Topheader = ({hamburgerToggle,setHamburgerToggle}:Props) => {
   }
 
   const handleProfile = () => {
-      
+      setProfileMenuToggle(!profileMenuToggle)
   }
 
   return (
@@ -60,7 +62,7 @@ const Topheader = ({hamburgerToggle,setHamburgerToggle}:Props) => {
       <div className="flex flex-row-reverse items-center ml-auto w-4/12 h-full p-4">
         <div
           style={{ paddingLeft: "0.7rem" }}
-          className="bg-orange-400 rounded-full w-8 h-8 m-2 text-white pt-0.5 text-lg"
+          className="bg-orange-400 rounded-full w-8 h-8 m-2 text-white pt-0.5 text-lg cursor-pointer"
           onClick={handleProfile}
         >
           Y

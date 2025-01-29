@@ -8,6 +8,7 @@ const userController = new UserController()
 
 
 router.get("/hi/:name" , extractCookiesAndInsertIntoHeader ,authenticateTokenFromHeader ,userController.getHellowWorld)
+router.get('/api/sessions/oauth/google', userController.googleOAuth)
 
 //  ONLY TOKEN RELATED ROUTES   ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 router.post("/register" ,validateDtoUser ,userController.createUser)
