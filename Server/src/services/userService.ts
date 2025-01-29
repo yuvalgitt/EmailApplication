@@ -92,19 +92,43 @@ export class UserService {
     }
   }
 
-  async getInbox(googleUser: GoogleUser, access_token: string) {
+  async getMessageData(access_token: string, messageId: string) {
     try {
+      if (!access_token) {
+        throw new Error("no token found");
+      }
       const response = await axios.get(
-        "https://www.googleapis.com/gmail/v1/users/me/messages/1946554acf6ffe5c",
+        `https://www.googleapis.com/gmail/v1/users/me/messages/${messageId}`,
         {
           headers: { Authorization: `Bearer ${access_token}` },
-          params: { q: "is:unread" }, // Search for unread emails
+          // params: { q: "is:unread" }, // Search for unread emails
         }
       );
-
-      console.log("Unread Emails:", response.data);
-      console.log(response.data.payload.headers);
+      console.log(response.data);
       
+      return response.data;
+    } catch (error) {
+      console.log("error fetching message data");
+
+      return error;
+    }
+  }
+
+  async getInbox(access_token: string) {
+    try {
+      if (!access_token) {
+        throw new Error("no token found");
+      }
+      const response = await axios.get(
+        "https://www.googleapis.com/gmail/v1/users/me/messages",
+        {
+          headers: { Authorization: `Bearer ${access_token}` },
+          // params: { q: "is:unread" }, // Search for unread emails
+        }
+      );
+      console.log(response.data.messages);
+
+      return response.data.messages;
     } catch (error: any) {
       console.error(
         "Error fetching emails:",

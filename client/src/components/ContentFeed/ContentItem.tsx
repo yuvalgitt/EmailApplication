@@ -3,10 +3,40 @@ import {
   StarIcon,
   StopIcon,
 } from "@heroicons/react/16/solid";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import serverUrl from "../../config/config";
 
-const ContentItem = () => {
+interface Props {
+  messageId: string;
+}
+const ContentItem = ({ messageId }: Props) => {
+  const [messageData, setMessageData] = useState<any>({});
+  const [date, setdate] = useState([[], []]);
+
+  const getMessageData = async (messageId: string) => {
+    const response = await axios.get(
+      `${serverUrl}/users/api/gmail/message/${messageId}`,
+      {
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await getMessageData(messageId);
+      setMessageData(response);
+      const dateArray = response?.payload?.headers
+        .find((x: any) => x.name === "Date")
+        .value.split(" ");
+      setdate([dateArray[1], dateArray[2]]);
+    };
+    fetchData();
+  }, []);
+
   const navigate = useNavigate();
   const handleSelectMail = () => {
     navigate("/mail");
@@ -22,22 +52,34 @@ const ContentItem = () => {
       <StarIcon className="content-header-svg ml-5"></StarIcon>
       <PaperAirplaneIcon className="content-header-svg ml-5"></PaperAirplaneIcon>
 
-      <div className="ml-8 w-10/12 text-gmail-lightgrey  whitespace-nowrap overflow-hidden text-ellipsis">
+      <div className="ml-8 w-10/12 text-gmail-lightgrey flex justify-between  whitespace-nowrap overflow-hidden text-ellipsis">
         {/* Sent from */}
-        <span className="text-white">Lorem Incorporated</span>
+        <span className="text-white w-[23%] overflow-hidden text-ellipsis ">
+          {
+            messageData?.payload?.headers.find((x: any) => x.name === "From")
+              .value
+          }
+        </span>{" "}
+        {/* FROM */}
         {/* mail title */}
-        <span className="text-white ml-20">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritat
+        <span className="text-white  pl-2 w-[33%] ">
+          {
+            messageData?.payload?.headers.find((x: any) => x.name === "Subject")
+              .value
+          }{" "}
+          {/* SUBJECT */}
         </span>
         {/* mail contents */}
-        <span className="text-gmail-lightgrey">
+        <span className="text-gmail-lightgrey  pl-2 w-[33%] flex-grow">
           {" "}
-          - aspernatur amet error, explicabo earum cumque voluptate voluptas
-          quaerat ex.dolor sit amet consectetur adipisicing elit
+          {/* SNIPPET */} {messageData?.snippet}
         </span>
       </div>
       <div className="flex flex-grow flex-row-reverse ">
-        <span className="text-sm mr-2">Jan 7</span>
+        <span className="text-sm mr-2">
+          {date[0]} {date[1]}{" "}
+        </span>{" "}
+        {/* DATE */}
       </div>
     </div>
   );

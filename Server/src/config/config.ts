@@ -26,7 +26,7 @@ const getSecrets = () => {
 setEnvPath();
 const secrets = getSecrets();
 
-export const googleClientId = secrets?.ClientSecret
+export const googleClientId = secrets?.clientId
 export const googleClientSecret = secrets?.ClientSecret
 export const googleOauthRedirectUrl =
   "http://localhost:3001/users/api/sessions/oauth/google";

@@ -7,8 +7,9 @@ const router = Router();
 const userController = new UserController()
 
 
-router.get("/hi/:name" , extractCookiesAndInsertIntoHeader ,authenticateTokenFromHeader ,userController.getHellowWorld)
 router.get('/api/sessions/oauth/google', userController.googleOAuth)
+router.get('/api/gmail/inbox', userController.getGmailInbox)
+router.get('/api/gmail/message/:id', userController.getMessageData)
 
 //  ONLY TOKEN RELATED ROUTES   ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 router.post("/register" ,validateDtoUser ,userController.createUser)
